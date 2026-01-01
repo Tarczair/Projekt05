@@ -4,11 +4,13 @@
 #include <string>
 #include "PiCalculator.h"
 
+using namespace std;
+
 int main(int argc, char* argv[]) {
     // Sprawdzamy, czy podano odpowiednią liczbę argumentów
     // Oczekujemy: ./Projekt05 <liczba_krokow> <liczba_watkow>
     if (argc != 3) {
-        std::cerr << "Uzycie: " << argv[0] << " <liczba_krokow> <liczba_watkow>" << std::endl;
+        cerr << "Uzycie: " << argv[0] << " <liczba_krokow> <liczba_watkow>" << endl;
         return 1;
     }
 
@@ -16,11 +18,11 @@ int main(int argc, char* argv[]) {
     int threads = 0;
 
     try {
-        steps = std::stoll(argv[1]);
-        threads = std::stoi(argv[2]);
+        steps = stoll(argv[1]);
+        threads = stoi(argv[2]);
     }
     catch (...) {
-        std::cerr << "Blad parsowania argumentow." << std::endl;
+        cerr << "Blad parsowania argumentow." << endl;
         return 1;
     }
 
@@ -31,18 +33,18 @@ int main(int argc, char* argv[]) {
     PiCalculator calculator;
 
     // Pomiar czasu START
-    auto start_time = std::chrono::high_resolution_clock::now();
+    auto start_time = chrono::high_resolution_clock::now();
 
     // Obliczenia
     double pi = calculator.calculate(steps, threads);
 
     // Pomiar czasu STOP
-    auto end_time = std::chrono::high_resolution_clock::now();
-    std::chrono::duration<double> elapsed = end_time - start_time;
+    auto end_time = chrono::high_resolution_clock::now();
+    chrono::duration<double> elapsed = end_time - start_time;
 
     // Wypisujemy TYLKO czas na końcu, aby Python łatwo to odczytał.
     // Python bedzie czytal ostatnia linie wyjscia.
-    std::cout << std::fixed << std::setprecision(6) << elapsed.count() << std::endl;
+    cout << fixed << setprecision(6) << elapsed.count() << endl;
 
     return 0;
 }
