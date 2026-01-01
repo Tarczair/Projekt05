@@ -127,7 +127,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="PiCalculator.cpp" />
     <ClCompile Include="Projekt05.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="PiCalculator.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
