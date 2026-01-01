@@ -1,46 +1,48 @@
 ﻿#include <iostream>
 #include <chrono>
 #include <iomanip>
+#include <string>
 #include "PiCalculator.h"
 
-int main() {
-    long long steps;
-    int threads;
+int main(int argc, char* argv[]) {
+    // Sprawdzamy, czy podano odpowiednią liczbę argumentów
+    // Oczekujemy: ./Projekt05 <liczba_krokow> <liczba_watkow>
+    if (argc != 3) {
+        std::cerr << "Uzycie: " << argv[0] << " <liczba_krokow> <liczba_watkow>" << std::endl;
+        return 1;
+    }
 
-    std::cout << "=== Obliczanie liczby PI metoda calkowania ===" << std::endl;
-    std::cout << "Podaj ilosc krokow (np. 100000000): ";
-    if (!(std::cin >> steps)) return 1;
+    long long steps = 0;
+    int threads = 0;
 
-    std::cout << "Podaj ilosc watkow (np. 1 - 50): ";
-    if (!(std::cin >> threads)) return 1;
+    try {
+        steps = std::stoll(argv[1]);
+        threads = std::stoi(argv[2]);
+    }
+    catch (...) {
+        std::cerr << "Blad parsowania argumentow." << std::endl;
+        return 1;
+    }
 
     if (steps <= 0 || threads <= 0) {
-        std::cerr << "Bledne dane wejsciowe. Liczby musza byc dodatnie." << std::endl;
-        return 1;
+        return 1; // Bledne dane
     }
 
     PiCalculator calculator;
 
-    std::cout << "Rozpoczynam obliczenia..." << std::endl;
-
     // Pomiar czasu START
     auto start_time = std::chrono::high_resolution_clock::now();
 
-    // Wywołanie obliczeń
+    // Obliczenia
     double pi = calculator.calculate(steps, threads);
 
     // Pomiar czasu STOP
     auto end_time = std::chrono::high_resolution_clock::now();
     std::chrono::duration<double> elapsed = end_time - start_time;
 
-    // Wypisanie wyników
-    std::cout << std::fixed << std::setprecision(15);
-    std::cout << "--------------------------------------------" << std::endl;
-    std::cout << "Obliczone PI: " << pi << std::endl;
-    std::cout << "Wzorcowe PI:  3.141592653589793" << std::endl;
-    std::cout << "Czas trwania: " << std::fixed << std::setprecision(6) << elapsed.count() << " sekund" << std::endl;
-    std::cout << "Uzyte watki:  " << threads << std::endl;
-    std::cout << "--------------------------------------------" << std::endl;
+    // Wypisujemy TYLKO czas na końcu, aby Python łatwo to odczytał.
+    // Python bedzie czytal ostatnia linie wyjscia.
+    std::cout << std::fixed << std::setprecision(6) << elapsed.count() << std::endl;
 
     return 0;
 }
