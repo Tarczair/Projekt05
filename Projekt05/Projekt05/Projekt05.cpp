@@ -1,14 +1,35 @@
-﻿#include <iostream>
+﻿/**
+ * @file Projekt05.cpp
+ * @brief Glowny modul programu wykonawczego.
+ * * Odpowiada za:
+ * - Parsowanie argumentow linii komend.
+ * - Inicjalizacje procesu obliczeniowego.
+ * - Precyzyjny pomiar czasu rzeczywistego wykonania zadania.
+ */
+
+#include <iostream>
 #include <chrono>
 #include <iomanip>
 #include <string>
 #include "PiCalculator.h"
 
+ /**
+  * @brief Funkcja main.
+  * * Przyjmuje argumenty:
+  * 1. Liczba krokow (long long)
+  * 2. Liczba watkow (int)
+  * * Wynik czasowy jest wypisywany na standardowe wyjscie w formacie zmiennoprzecinkowym.
+  */
+
 using namespace std;
 
 int main(int argc, char* argv[]) {
-    // Sprawdzamy, czy podano odpowiednią liczbę argumentów
-    // Oczekujemy: ./Projekt05 <liczba_krokow> <liczba_watkow>
+
+    /**
+    * Sprawdzamy, czy podano odpowiednia liczbe argumentow
+    * Oczekujemy: ./Projekt05 <liczba_krokow> <liczba_watkow>
+    */
+
     if (argc != 3) {
         cerr << "Uzycie: " << argv[0] << " <liczba_krokow> <liczba_watkow>" << endl;
         return 1;
@@ -32,18 +53,28 @@ int main(int argc, char* argv[]) {
 
     PiCalculator calculator;
 
-    // Pomiar czasu START
+    /**
+    * Pomiar czasu START
+    */
+
     auto start_time = chrono::high_resolution_clock::now();
 
-    // Obliczenia
+    /**
+    * Obliczenia
+    */
     double pi = calculator.calculate(steps, threads);
 
-    // Pomiar czasu STOP
+    /**
+    * Pomiar czasu STOP
+    */
     auto end_time = chrono::high_resolution_clock::now();
     chrono::duration<double> elapsed = end_time - start_time;
 
-    // Wypisujemy TYLKO czas na końcu, aby Python łatwo to odczytał.
-    // Python bedzie czytal ostatnia linie wyjscia.
+    /**
+    * Wypisujemy TYLKO czas na koncu, aby Python latwo to odczytal.
+    * Python bedzie czytal ostatnia linie wyjscia.
+    */
+
     cout << fixed << setprecision(6) << elapsed.count() << endl;
 
     return 0;

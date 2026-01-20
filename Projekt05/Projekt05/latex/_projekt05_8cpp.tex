@@ -1,0 +1,48 @@
+\doxysection{Projekt05.\+cpp File Reference}
+\hypertarget{_projekt05_8cpp}{}\label{_projekt05_8cpp}\index{Projekt05.cpp@{Projekt05.cpp}}
+
+
+Glowny modul programu wykonawczego.  
+
+
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$chrono$>$}\newline
+{\ttfamily \#include $<$iomanip$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include "{}Pi\+Calculator.\+h"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{_projekt05_8cpp_a0ddf1224851353fc92bfbff6f499fa97}{main}} (int argc, char \texorpdfstring{$\ast$}{*}argv\mbox{[}$\,$\mbox{]})
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Glowny modul programu wykonawczego. 
+
+
+\begin{DoxyItemize}
+\item Odpowiada za\+:
+\item Parsowanie argumentow linii komend.
+\item Inicjalizacje procesu obliczeniowego.
+\item Precyzyjny pomiar czasu rzeczywistego wykonania zadania. 
+\end{DoxyItemize}
+
+\label{doc-func-members}
+\Hypertarget{_projekt05_8cpp_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{_projekt05_8cpp_a0ddf1224851353fc92bfbff6f499fa97}\index{Projekt05.cpp@{Projekt05.cpp}!main@{main}}
+\index{main@{main}!Projekt05.cpp@{Projekt05.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{_projekt05_8cpp_a0ddf1224851353fc92bfbff6f499fa97} 
+int main (\begin{DoxyParamCaption}\item[{int}]{argc}{, }\item[{char \texorpdfstring{$\ast$}{*}}]{argv}{\mbox{[}$\,$\mbox{]}}\end{DoxyParamCaption})}
+
+Sprawdzamy, czy podano odpowiednia liczbe argumentow Oczekujemy\+: ./\+Projekt05 $<$liczba\+\_\+krokow$>$ $<$liczba\+\_\+watkow$>$
+
+Pomiar czasu START
+
+Obliczenia
+
+Pomiar czasu STOP
+
+Wypisujemy TYLKO czas na koncu, aby Python latwo to odczytal. Python bedzie czytal ostatnia linie wyjscia.

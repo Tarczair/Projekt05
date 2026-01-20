@@ -1,0 +1,20 @@
+\begin{theindex}
+
+  \item {calculate}
+    \subitem {PiCalculator}, \hyperpage{5}
+
+  \indexspace
+
+  \item {main}
+    \subitem {Projekt05.cpp}, \hyperpage{8}
+
+  \indexspace
+
+  \item {PiCalculator}, \hyperpage{5}
+    \subitem {calculate}, \hyperpage{5}
+  \item {PiCalculator.cpp}, \hyperpage{7}
+  \item {PiCalculator.h}, \hyperpage{7}
+  \item {Projekt05.cpp}, \hyperpage{8}
+    \subitem {main}, \hyperpage{8}
+
+\end{theindex}

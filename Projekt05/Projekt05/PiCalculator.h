@@ -1,13 +1,26 @@
-#pragma once
-#include <vector>
+/**
+ * @file PiCalculator.h
+ * @brief Definicja klasy PiCalculator.
+ */
 
+#ifndef PICALCULATOR_H
+#define PICALCULATOR_H
+
+ /**
+  * @class PiCalculator
+  * @brief Klasa odpowiedzialna za obliczenia matematyczne liczby PI.
+  * * Klasa udostepnia metody do rownoleglego obliczania wartosci PI
+  * z wykorzystaniem biblioteki standardowej watkow C++11.
+  */
 class PiCalculator {
 public:
-    /*
-     * Oblicza przybli¿on¹ wartoœæ PI metod¹ ca³kowania numerycznego.
-     * @param num_steps Iloœæ podzia³ów przedzia³u (dok³adnoœæ).
-     * @param num_threads Iloœæ w¹tków do wykorzystania.
-     * @return Obliczona wartoœæ PI.
+    /**
+     * @brief Metoda obliczajaca PI.
+     * @param num_steps Liczba iteracji algorytmu.
+     * @param num_threads Liczba watkow roboczych.
+     * @return double Wynik obliczen.
      */
     double calculate(long long num_steps, int num_threads);
 };
+
+#endif

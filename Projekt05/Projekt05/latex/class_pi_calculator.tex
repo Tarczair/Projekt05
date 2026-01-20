@@ -1,0 +1,69 @@
+\doxysection{Pi\+Calculator Class Reference}
+\hypertarget{class_pi_calculator}{}\label{class_pi_calculator}\index{PiCalculator@{PiCalculator}}
+
+
+Klasa odpowiedzialna za obliczenia matematyczne liczby PI.  
+
+
+
+
+{\ttfamily \#include $<$Pi\+Calculator.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+double \mbox{\hyperlink{class_pi_calculator_aea141e1013cc8a224a21ed878559ecc0}{calculate}} (long long num\+\_\+steps, int num\+\_\+threads)
+\begin{DoxyCompactList}\small\item\em Metoda obliczajaca PI. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Klasa odpowiedzialna za obliczenia matematyczne liczby PI. 
+
+
+\begin{DoxyItemize}
+\item Klasa udostepnia metody do rownoleglego obliczania wartosci PI z wykorzystaniem biblioteki standardowej watkow C++11. 
+\end{DoxyItemize}
+
+\label{doc-func-members}
+\Hypertarget{class_pi_calculator_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_pi_calculator_aea141e1013cc8a224a21ed878559ecc0}\index{PiCalculator@{PiCalculator}!calculate@{calculate}}
+\index{calculate@{calculate}!PiCalculator@{PiCalculator}}
+\doxysubsubsection{\texorpdfstring{calculate()}{calculate()}}
+{\footnotesize\ttfamily \label{class_pi_calculator_aea141e1013cc8a224a21ed878559ecc0} 
+double Pi\+Calculator\+::calculate (\begin{DoxyParamCaption}\item[{long long}]{num\+\_\+steps}{, }\item[{int}]{num\+\_\+threads}{}\end{DoxyParamCaption})}
+
+
+
+Metoda obliczajaca PI. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em num\+\_\+steps} & Liczba iteracji algorytmu. \\
+\hline
+{\em num\+\_\+threads} & Liczba watkow roboczych. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+double Wynik obliczen. 
+\end{DoxyReturn}
+Wektor przechowujacy wyniki czastkowe z kazdego watku Uzywamy wektora, aby uniknac wyscigu danych (data race) przy sumowaniu
+
+Obliczamy ile krokow petli przypada na jeden watek
+
+Uruchamiamy watek z wyrazeniem lambda Przekazujemy zmienne przez wartosc \mbox{[}=\mbox{]} oraz wektor wynikow przez referencje \mbox{[}\&partial\+\_\+sums\mbox{]}
+
+Ostatni watek bierze na siebie ewentualna reszte z dzielenia
+
+Petla calkowania numerycznego (metoda prostokatow z punktem srodkowym)
+
+Zapisz wynik czastkowy w odpowiednim miejscu wektora
+
+Czekamy na zakonczenie wszystkich watkow (join)
+
+Sumujemy wyniki czastkowe
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_pi_calculator_8h}{Pi\+Calculator.\+h}}\item 
+\mbox{\hyperlink{_pi_calculator_8cpp}{Pi\+Calculator.\+cpp}}\end{DoxyCompactItemize}
